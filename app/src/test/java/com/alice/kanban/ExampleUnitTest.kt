@@ -1,4 +1,4 @@
-package com.julias.kanban
+package com.alice.kanban
 
 import org.junit.Test
 

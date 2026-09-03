@@ -1,4 +1,4 @@
-package com.julias.kanban.data.model
+package com.alice.kanban.data.model
 
 enum class Status {
     TODO,

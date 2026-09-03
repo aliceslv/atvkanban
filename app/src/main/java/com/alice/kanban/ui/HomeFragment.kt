@@ -1,12 +1,12 @@
-package com.julias.kanban.ui
+package com.alice.kanban.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.julias.kanban.R
-import com.julias.kanban.databinding.FragmentHomeBinding
-import com.julias.kanban.ui.adapter.ViewPagerAdapter
+import com.alice.kanban.R
+import com.alice.kanban.databinding.FragmentHomeBinding
+import com.alice.kanban.ui.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 

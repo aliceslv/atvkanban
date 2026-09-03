@@ -1,4 +1,4 @@
-package com.julias.kanban.data.model
+package com.alice.kanban.data.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

@@ -1,4 +1,4 @@
-package com.julias.kanban.ui.adapter
+package com.alice.kanban.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

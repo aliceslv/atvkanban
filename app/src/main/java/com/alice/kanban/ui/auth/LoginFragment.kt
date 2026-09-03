@@ -1,5 +1,4 @@
-package com.julias.kanban.ui.auth
-
+package com.alice.kanban.ui.auth
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.julias.kanban.R
-import com.julias.kanban.databinding.FragmentRegisterBinding
-import com.julias.kanban.util.initToolbar
-import com.julias.kanban.util.showBottomSheet
+import com.alice.kanban.R
+import com.alice.kanban.databinding.FragmentLoginBinding
+import com.alice.kanban.util.showBottomSheet
 
-class RegisterFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding: FragmentRegisterBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,20 +20,24 @@ class RegisterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar(binding.toolbar)
         initListener()
     }
 
     private fun initListener(){
-        binding.buttonCriarconta.setOnClickListener{
+        binding.buttonLogin.setOnClickListener {
             valideData()
+        }
+        binding.textViewCriarConta.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        binding.textViewRecuperarConta.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
     }
 
@@ -46,12 +48,13 @@ class RegisterFragment : Fragment() {
             if (senha.isNotBlank()) {
                 findNavController().navigate(R.id.action_global_homeFragment)
             } else {
-                showBottomSheet(message = getString(R.string.password_empty_register_gragment))
+                showBottomSheet(message = getString(R.string.password_empty))
             }
         }else{
-            showBottomSheet(message = getString(R.string.email_empty_register_fragment))
+            showBottomSheet(message = getString(R.string.email_empty))
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

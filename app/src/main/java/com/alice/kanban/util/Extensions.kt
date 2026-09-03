@@ -1,10 +1,10 @@
-package com.julias.kanban.util
+package com.alice.kanban.util
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.julias.kanban.R
-import com.julias.kanban.databinding.BottomSheetBinding
+import com.alice.kanban.R
+import com.alice.kanban.databinding.BottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 

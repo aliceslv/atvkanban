@@ -1,4 +1,4 @@
-package com.julias.kanban
+package com.alice.kanban
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

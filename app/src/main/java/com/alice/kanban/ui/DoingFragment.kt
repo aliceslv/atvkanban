@@ -1,4 +1,4 @@
-package com.julias.kanban.ui
+package com.alice.kanban.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.julias.kanban.R
-import com.julias.kanban.data.model.Status
-import com.julias.kanban.data.model.Task
-import com.julias.kanban.databinding.FragmentDoneBinding
-import com.julias.kanban.ui.adapter.TaskAdapter
+import com.alice.kanban.R
+import com.alice.kanban.data.model.Status
+import com.alice.kanban.data.model.Task
+import com.alice.kanban.databinding.FragmentDoingBinding
+import com.alice.kanban.ui.adapter.TaskAdapter
 
-class DoneFragment : Fragment() {
+class DoingFragment : Fragment() {
 
-    private var _binding: FragmentDoneBinding? = null
+    private var _binding: FragmentDoingBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var taskAdapter: TaskAdapter
@@ -25,7 +25,7 @@ class DoneFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDoneBinding.inflate(inflater,container,false)
+        _binding = FragmentDoingBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -59,6 +59,9 @@ class DoneFragment : Fragment() {
             TaskAdapter.SELECT_DETAILS -> {
                 Toast.makeText(requireContext(), "Detalhes ${task.description}", Toast.LENGTH_SHORT).show()
             }
+            TaskAdapter.SELECT_NEXT -> {
+                Toast.makeText(requireContext(), "Próximo", Toast.LENGTH_SHORT).show()
+            }
             TaskAdapter.SELECT_BACK -> {
                 Toast.makeText(requireContext(), "Anterior", Toast.LENGTH_SHORT).show()
             }
@@ -66,16 +69,15 @@ class DoneFragment : Fragment() {
     }
 
     private fun getTask() = listOf(
-        Task("0","CRUD OS NexOs", Status.DONE),
-        Task("1","Tela de login NexOs", Status.DONE),
-        Task("2","Fazer Janta", Status.DONE),
-        Task("3","Lavar louça", Status.DONE),
-        Task("4","Fazer inscrição TOEFL", Status.DONE),
+        Task("0","Criar CRUD Usuário NexOs", Status.DOING),
+        Task("1","Reformular BD NexOs", Status.DOING),
+        Task("2","Lavar Roupas", Status.DOING),
+        Task("3","Dobrar Roupas", Status.DOING),
+        Task("4","Ouvir ao Repertório de Domingo", Status.DOING),
     )
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

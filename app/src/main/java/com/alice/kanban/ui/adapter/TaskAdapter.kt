@@ -1,4 +1,4 @@
-package com.julias.kanban.ui.adapter
+package com.alice.kanban.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.julias.kanban.R
-import com.julias.kanban.data.model.Status
-import com.julias.kanban.data.model.Task
-import com.julias.kanban.databinding.ItemTaskBinding
+import com.alice.kanban.R
+import com.alice.kanban.data.model.Status
+import com.alice.kanban.data.model.Task
+import com.alice.kanban.databinding.ItemTaskBinding
 
 class TaskAdapter(
     private val context: Context,

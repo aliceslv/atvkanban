@@ -1,4 +1,4 @@
-package com.julias.kanban.ui.auth
+package com.alice.kanban.ui.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.julias.kanban.R
-import com.julias.kanban.databinding.FragmentRecoverAccountBinding
-import com.julias.kanban.util.initToolbar
-import com.julias.kanban.util.showBottomSheet
+import com.alice.kanban.R
+import com.alice.kanban.databinding.FragmentRecoverAccountBinding
+import com.alice.kanban.util.initToolbar
+import com.alice.kanban.util.showBottomSheet
 
 class RecoverAccountFragment : Fragment() {
 

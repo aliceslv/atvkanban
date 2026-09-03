@@ -1,4 +1,4 @@
-package com.julias.kanban.ui
+package com.alice.kanban.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.julias.kanban.R
-import com.julias.kanban.databinding.FragmentSplashBinding
+import com.alice.kanban.R
+import com.alice.kanban.databinding.FragmentSplashBinding
 
 
 class SplashFragment : Fragment() {
