@@ -32,7 +32,8 @@ class DoingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
-        initRecyclerViewTask(getTask())
+        initRecyclerViewTask()
+        getTask()
     }
 
     private fun initListeners(){
@@ -41,11 +42,14 @@ class DoingFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask(taskList: List<Task>){
-        taskAdapter = TaskAdapter(requireContext(), taskList) {task, option -> optionSelected(task,option)}
-        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewTask.setHasFixedSize(true)
-        binding.recyclerViewTask.adapter = taskAdapter
+    private fun initRecyclerViewTask(){
+        taskAdapter = TaskAdapter(requireContext()) {task, option -> optionSelected(task,option)}
+
+        with(binding.recyclerViewTask){
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = taskAdapter
+        }
     }
 
     private fun optionSelected(task:Task, option: Int){
@@ -68,13 +72,16 @@ class DoingFragment : Fragment() {
         }
     }
 
-    private fun getTask() = listOf(
-        Task("0","Criar CRUD Usuário NexOs", Status.DOING),
-        Task("1","Reformular BD NexOs", Status.DOING),
-        Task("2","Lavar Roupas", Status.DOING),
-        Task("3","Dobrar Roupas", Status.DOING),
-        Task("4","Ouvir ao Repertório de Domingo", Status.DOING),
-    )
+    private fun getTask() {
+        val taskList = listOf(
+            Task("0", "Lista matemática", Status.DOING),
+            Task("1", "Maquiagem", Status.DOING),
+            Task("2", "Gastar dinheiro", Status.DOING),
+            Task("3", "Ver filme", Status.DOING),
+            Task("4", "Ler fanfic do wattpad", Status.DOING),
+        )
+        taskAdapter.submitList(taskList)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

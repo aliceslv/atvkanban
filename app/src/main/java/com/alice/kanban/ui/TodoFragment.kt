@@ -34,7 +34,8 @@ class TodoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
-        initRecyclerViewTask(getTask())
+        initRecyclerViewTask()
+        getTask()
     }
 
     private fun initListeners(){
@@ -43,11 +44,14 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask(taskList: List<Task>){
-        taskAdapter = TaskAdapter(requireContext(), taskList) {task, option -> optionSelected(task,option)}
-        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewTask.setHasFixedSize(true)
-        binding.recyclerViewTask.adapter = taskAdapter
+    private fun initRecyclerViewTask(){
+        taskAdapter = TaskAdapter(requireContext()) {task, option -> optionSelected(task,option)}
+
+        with(binding.recyclerViewTask){
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = taskAdapter
+        }
     }
 
     private fun optionSelected(task:Task, option: Int){
@@ -67,13 +71,16 @@ class TodoFragment : Fragment() {
         }
     }
 
-    private fun getTask() = listOf(
-        Task("0","Organizar armário",Status.TODO),
-        Task("1","Integrar IA de mapa NexOs",Status.TODO),
-        Task("2","Varrer chão",Status.TODO),
-        Task("3","Lavar banheiro",Status.TODO),
-        Task("4","Tirar músicas repertório",Status.TODO),
-    )
+    private fun getTask() {
+        val tasklist = listOf(
+            Task("0", "Organizar quarto", Status.TODO),
+            Task("1", "Terminar TCC", Status.TODO),
+            Task("2", "Comer", Status.TODO),
+            Task("3", "Ir ao shopping", Status.TODO),
+            Task("4", "Psiquiatra", Status.TODO),
+        )
+        taskAdapter.submitList(tasklist)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.julias.kanban"
+    namespace = "com.alice.kanban"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.julias.kanban"
+        applicationId = "com.alice.kanban"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -34,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -42,6 +43,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
